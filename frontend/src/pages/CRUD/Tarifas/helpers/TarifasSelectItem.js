@@ -50,7 +50,10 @@ const TarifasSelectItem = (props) => {
     },
   };
 
-  const { form, ...rest } = props;
+  const {
+    form,
+    ...rest
+  } = props;
 
   return (
     <React.Fragment>
@@ -63,10 +66,12 @@ const TarifasSelectItem = (props) => {
       />
     </React.Fragment>
   );
-};
+}
 
 const select = (state) => ({
-  hasPermissionToCreate: state.tarifas.hasPermissionToCreate,
+  hasPermissionToCreate: state.tarifas.hasPermissionToCreate
 });
 
-export default connect(select)(TarifasSelectItem);
+export default connect(select)(
+  TarifasSelectItem,
+);

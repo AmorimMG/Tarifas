@@ -7,6 +7,6 @@ const TarifasTablePage = () => {
       <TarifasTable />
     </div>
   );
-};
+}
 
 export default TarifasTablePage;

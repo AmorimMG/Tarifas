@@ -17,14 +17,14 @@ const actions = {
         type: 'TARIFAS_FORM_FIND_STARTED',
       });
 
-      axios.get(`/tarifas/${id}`).then((res) => {
+      axios.get(`/tarifas/${id}`).then(res => {
         const record = res.data;
 
         dispatch({
           type: 'TARIFAS_FORM_FIND_SUCCESS',
           payload: record,
         });
-      });
+      })
     } catch (error) {
       Errors.handle(error);
 
@@ -42,13 +42,13 @@ const actions = {
         type: 'TARIFAS_FORM_CREATE_STARTED',
       });
 
-      axios.post('/tarifas', { data: values }).then((res) => {
+      axios.post('/tarifas', { data: values }).then(res => {
         dispatch({
           type: 'TARIFAS_FORM_CREATE_SUCCESS',
         });
         showSnackbar({ type: 'success', message: 'Tarifas created' });
         dispatch(push('/admin/tarifas'));
-      });
+      })
     } catch (error) {
       Errors.handle(error);
 
@@ -58,13 +58,16 @@ const actions = {
     }
   },
 
-  doUpdate: (id, values, isProfile) => async (dispatch, getState) => {
+  doUpdate: (id, values, isProfile) => async (
+    dispatch,
+    getState,
+  ) => {
     try {
       dispatch({
         type: 'TARIFAS_FORM_UPDATE_STARTED',
       });
 
-      await axios.put(`/tarifas/${id}`, { id, data: values });
+      await axios.put(`/tarifas/${id}`, {id, data: values});
 
       dispatch(doInit());
 
